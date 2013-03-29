@@ -34,7 +34,7 @@ public class StorageTests extends TestCase {
       }
     }.start();
 
-//    Thread.sleep(500);
+    Thread.sleep(500);
 //    try {
 //      zooKeeperServer.shutdown();
 //    } catch (IOException e) {

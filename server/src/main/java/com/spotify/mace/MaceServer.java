@@ -13,7 +13,14 @@ import org.eclipse.jetty.server.Server;
 
 public class MaceServer {
   public static void main(String[] args) throws Exception {
-    Server server = new Server(8080);
+    /* we need a couple of threads here:
+     * main thread
+     * HTTP Server
+     * Storage
+     * Task Runner
+     */
+
+//    Server server = new Server(8080);
 //    server.setHandler(new HelloWord());
 //    server.start();
 //    server.join();
