@@ -1,6 +1,3 @@
-import com.google.common.io.CharStreams;
-import org.joda.time.Duration;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -10,6 +7,9 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
+import org.joda.time.Duration;
+
+import com.google.common.io.CharStreams;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class UrlGetter {

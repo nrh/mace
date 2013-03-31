@@ -11,15 +11,16 @@ SLF4J     = [ 'org.slf4j:slf4j-api:jar:1.7.3',
 JETTY     = [ transitive('org.eclipse.jetty:jetty-server:jar:8.1.10.v20130312'),
               transitive('org.eclipse.jetty:jetty-servlet:jar:8.1.10.v20130312') ]
 JETTYTEST = 'org.eclipse.jetty:test-jetty-servlet:jar:8.1.10.v20130312'
-GUAVA     = transitive('com.google.guava:guava:jar:14.0.1')
 TIME      = 'joda-time:joda-time:jar:2.2'
             
 JUNIT     = transitive('junit:junit:jar:4.11')
+GUAVA     = transitive('com.google.guava:guava:jar:14.0.1')
 GSONLIB   = transitive('com.google.code.gson:gson:jar:2.2.2')
+GCOLLECT  = 'com.google.collections:google-collections:jar:1.0'
 
 define 'mace-server' do
   project.version = '0.0.1'
-  compile.with ZOOKEEPER, SLF4J, JETTY, GSONLIB, GUAVA, TIME
+  compile.with ZOOKEEPER, SLF4J, JETTY, GSONLIB, GUAVA, TIME, GCOLLECT
   test.with JUNIT, JETTYTEST
   package :jar
   pmd.enabled = true
