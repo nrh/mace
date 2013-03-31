@@ -5,15 +5,22 @@ require 'buildr/checkstyle'
 repositories.remote << 'http://repo1.maven.org/maven2'
 
 ZOOKEEPER = 'org.apache.zookeeper:zookeeper:jar:3.4.5'
-SLF4J     = 'org.slf4j:slf4j-api:jar:1.7.2'
-SERVLET   = 'javax.servlet:servlet-api:jar:2.5'
-JETTY     = transitive('org.eclipse.jetty:jetty-server:jar:8.1.9.v20130131')
+SLF4J     = [ 'org.slf4j:slf4j-api:jar:1.7.3',
+              'org.slf4j:slf4j-log4j12:jar:1.7.3',
+              'log4j:log4j:jar:1.2.16' ]
+JETTY     = [ transitive('org.eclipse.jetty:jetty-server:jar:8.1.10.v20130312'),
+              transitive('org.eclipse.jetty:jetty-servlet:jar:8.1.10.v20130312') ]
+JETTYTEST = 'org.eclipse.jetty:test-jetty-servlet:jar:8.1.10.v20130312'
+GUAVA     = transitive('com.google.guava:guava:jar:14.0.1')
+TIME      = 'joda-time:joda-time:jar:2.2'
+            
 JUNIT     = transitive('junit:junit:jar:4.11')
+GSONLIB   = transitive('com.google.code.gson:gson:jar:2.2.2')
 
 define 'mace-server' do
   project.version = '0.0.1'
-  compile.with ZOOKEEPER, SLF4J, SERVLET, JETTY
-  test.with JUNIT
+  compile.with ZOOKEEPER, SLF4J, JETTY, GSONLIB, GUAVA, TIME
+  test.with JUNIT, JETTYTEST
   package :jar
   pmd.enabled = true
 end
