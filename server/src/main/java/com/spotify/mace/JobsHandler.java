@@ -3,7 +3,6 @@ package com.spotify.mace;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
@@ -27,6 +26,7 @@ public class JobsHandler extends AbstractHandler
         response.setContentType("application/json;");
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
+        log.info(request);
         response.getWriter().println("{'status':'OK'}");
     }
 }

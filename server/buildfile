@@ -18,11 +18,16 @@ GUAVA     = transitive('com.google.guava:guava:jar:14.0.1')
 GSONLIB   = transitive('com.google.code.gson:gson:jar:2.2.2')
 GCOLLECT  = 'com.google.collections:google-collections:jar:1.0'
 
-define 'mace-server' do
+define 'mace' do
   project.version = '0.0.1'
-  compile.with ZOOKEEPER, SLF4J, JETTY, GSONLIB, GUAVA, TIME, GCOLLECT
-  test.with JUNIT, JETTYTEST
-  package :jar
-  pmd.enabled = true
+  define 'mace-server' do
+    compile.with ZOOKEEPER, SLF4J, JETTY, GSONLIB, GUAVA, TIME, GCOLLECT
+    test.with JUNIT, JETTYTEST
+    package :jar
+    pmd.enabled = true
+  end
+  checkstyle.source_paths << project('mace-server')._(:source, :main, :java)
 end
+
+
 

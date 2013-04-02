@@ -91,7 +91,7 @@ public class UrlGetter {
         InputStreamReader reader = openAppropriateResultStream(responseCode, connection);
 
         try {
-            return new HttpResult(connection.getURL().toURI(), connection.getConnectTimeout(), connection.getReadTimeout(), connection.getRequestMethod(), responseCode, responseHeadersFrom(connection), CharStreams.toString(reader));
+            return new HttpResult(uri, connection.getConnectTimeout(), connection.getReadTimeout(), connection.getRequestMethod(), responseCode, responseHeadersFrom(connection), CharStreams.toString(reader));
         } finally {
             reader.close();
         }
