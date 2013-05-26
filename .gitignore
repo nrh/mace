@@ -1,3 +1,5 @@
 */reports
 */target
 *.swp
+*.pyc
+.coverage
